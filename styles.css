@@ -92,10 +92,7 @@ a {
 
 .brand-text {
   display: inline-block;
-}
-
-.brand span {
-  color: var(--accent);
+  color: #fff;
 }
 
 .menu-toggle {
