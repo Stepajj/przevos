@@ -9,19 +9,27 @@
       content="Premium przeprowadzki mieszkań i biur. Ubezpieczony transport, profesjonalny zespół i szybka wycena. Zamów relokację bez stresu."
     />
     <link rel="preconnect" href="https://images.unsplash.com" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=2" />
   </head>
   <body>
     <header class="site-header">
       <div class="container nav">
-        <a href="#hero" class="brand">Przevo<span>Premium</span></a>
-        <nav aria-label="Główna nawigacja">
+        <a href="#hero" class="brand">
+          <img src="img/logo.jpg" alt="FlexiPrzeprowadzki logo" class="brand-logo" />
+          <span class="brand-text">Przevo<span>Premium</span></span>
+        </a>
+        <nav id="site-nav" class="main-nav" aria-label="Główna nawigacja">
           <a href="#services">Usługi</a>
           <a href="#process">Proces</a>
           <a href="#pricing">Cennik</a>
           <a href="#faq">FAQ</a>
           <a href="#contact">Kontakt</a>
         </nav>
+        <button class="menu-toggle" type="button" aria-label="Otwórz menu" aria-controls="site-nav" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         <a href="#contact" class="btn btn-small">Szybka wycena</a>
       </div>
     </header>
@@ -260,9 +268,33 @@
             <h2>Zaufanie budujemy realizacjami, nie obietnicami</h2>
           </div>
           <div class="testimonial-grid">
-            <article><p>"Profesjonalnie od telefonu po rozładunek. Zero stresu."</p><h3>Anna, Warszawa</h3></article>
-            <article><p>"Przeprowadzka biura w weekend, w poniedziałek wróciliśmy do pracy."</p><h3>Marek, Poznań</h3></article>
-            <article><p>"Bardzo dokładne zabezpieczenie mebli i punktualna ekipa."</p><h3>Katarzyna, Wrocław</h3></article>
+            <article>
+              <div class="review-head">
+                <p class="review-author">Anna K.</p>
+                
+              </div>
+              <p class="review-stars" aria-label="Ocena 5 na 5">★★★★★</p>
+              <p>"Profesjonalnie od telefonu po rozładunek. Ekipa punktualna, wszystko zabezpieczone, a kontakt z koordynatorem wzorowy. Przeprowadzka bez żadnego stresu."</p>
+              <h3>Warszawa • przeprowadzka mieszkania</h3>
+            </article>
+            <article>
+              <div class="review-head">
+                <p class="review-author">Marek L.</p>
+                
+              </div>
+              <p class="review-stars" aria-label="Ocena 5 na 5">★★★★★</p>
+              <p>"Relokacja biura w weekend była zaplanowana perfekcyjnie. W poniedziałek o 8:00 zespół pracował normalnie, bez przestoju i chaosu."</p>
+              <h3>Poznań • przeprowadzka biura</h3>
+            </article>
+            <article>
+              <div class="review-head">
+                <p class="review-author">Katarzyna W.</p>
+               
+              </div>
+              <p class="review-stars" aria-label="Ocena 5 na 5">★★★★★</p>
+              <p>"Delikatne meble i sprzęt RTV dotarły idealnie. Bardzo wysoka kultura pracy, jasna wycena i świetna organizacja od początku do końca."</p>
+              <h3>Wrocław • transport premium</h3>
+            </article>
           </div>
         </div>
       </section>
@@ -387,7 +419,10 @@
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <a href="#hero" class="brand">Przevo<span>Premium</span></a>
+          <a href="#hero" class="brand">
+            <img src="img/logo.jpg" alt="FlexiPrzeprowadzki logo" class="brand-logo" />
+            <span class="brand-text">Przevo<span>Premium</span></span>
+          </a>
           <p>Premium przeprowadzki mieszkań, biur i transport specjalistyczny.</p>
         </div>
         <div>
@@ -412,5 +447,25 @@
       </div>
       <p class="copyright">© 2026 Przevo Premium. Wszelkie prawa zastrzeżone.</p>
     </footer>
+    <script>
+      const menuButton = document.querySelector(".menu-toggle");
+      const mainNav = document.querySelector("#site-nav");
+
+      if (menuButton && mainNav) {
+        menuButton.addEventListener("click", () => {
+          const isOpen = mainNav.classList.toggle("is-open");
+          menuButton.setAttribute("aria-expanded", String(isOpen));
+          menuButton.setAttribute("aria-label", isOpen ? "Zamknij menu" : "Otwórz menu");
+        });
+
+        mainNav.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            mainNav.classList.remove("is-open");
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton.setAttribute("aria-label", "Otwórz menu");
+          });
+        });
+      }
+    </script>
   </body>
 </html>
