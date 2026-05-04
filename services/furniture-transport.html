@@ -8,20 +8,28 @@
       name="description"
       content="Szczegóły usługi transportu mebli: demontaż, profesjonalne zabezpieczenie i montaż w nowej lokalizacji."
     />
-    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../styles.css?v=2" />
   </head>
   <body class="service-page">
     <header class="site-header">
       <div class="container nav">
-        <a href="#hero" class="brand">Przevo<span>Premium</span></a>
-        <nav aria-label="Główna nawigacja">
-          <a href="#services">Usługi</a>
-          <a href="#process">Proces</a>
-          <a href="#pricing">Cennik</a>
-          <a href="#faq">FAQ</a>
-          <a href="#contact">Kontakt</a>
+        <a href="../index.html#hero" class="brand">
+          <img src="../img/logo.jpg" alt="FlexiPrzeprowadzki logo" class="brand-logo" />
+          <span class="brand-text">Przevo<span>Premium</span></span>
+        </a>
+        <nav id="site-nav" class="main-nav" aria-label="Główna nawigacja">
+          <a href="../index.html#services">Usługi</a>
+          <a href="../index.html#process">Proces</a>
+          <a href="../index.html#pricing">Cennik</a>
+          <a href="../index.html#faq">FAQ</a>
+          <a href="../index.html#contact">Kontakt</a>
         </nav>
-        <a href="#contact" class="btn btn-small">Szybka wycena</a>
+        <button class="menu-toggle" type="button" aria-label="Otwórz menu" aria-controls="site-nav" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a href="../index.html#contact" class="btn btn-small">Szybka wycena</a>
       </div>
     </header>
     <main class="service-detail">
@@ -35,7 +43,7 @@
               demontujemy elementy, zabezpieczamy je profesjonalnymi materiałami i montujemy
               ponownie na miejscu, abyś mógł od razu korzystać z nowej przestrzeni.
             </p>
-            <a class="btn service-call-btn" href="tel:+48123123123">Zamówić przeprowadzkę</a>
+            <a class="btn service-call-btn" href="tel:+48573983035">Zamówić przeprowadzkę</a>
           </section>
           <figure class="service-media">
             <img
@@ -46,5 +54,63 @@
         </div>
       </div>
     </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <a href="../index.html#hero" class="brand">
+            <img src="../img/logo.jpg" alt="FlexiPrzeprowadzki logo" class="brand-logo" />
+            <span class="brand-text">Przevo<span>Premium</span></span>
+          </a>
+          <p>Premium przeprowadzki mieszkań, biur i transport specjalistyczny.</p>
+        </div>
+        <div>
+          <h3>Nawigacja</h3>
+          <a href="../index.html#services">Usługi</a>
+          <a href="../index.html#pricing">Cennik</a>
+          <a href="../index.html#faq">FAQ</a>
+          <a href="../index.html#contact">Kontakt</a>
+        </div>
+        <div>
+          <h3>Kontakt</h3>
+          <a href="tel:+48573983035">+48 573 983 035</a>
+          <a href="mailto:FlexiPrzeprowadzki@gmail.com">FlexiPrzeprowadzki@gmail.com</a>
+          <a
+            href="https://www.instagram.com/flexiprzeprowadzki?igsh=MTYwcGNwbzNiZDE2aw%3D%3D&amp;utm_source=qr"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Instagram — @flexiprzeprowadzki</a
+          >
+          <p>Warszawa, Polska</p>
+        </div>
+        <div>
+          <h3>Informacje prawne</h3>
+          <a href="#">Polityka prywatności</a>
+          <a href="#">Regulamin</a>
+          <a href="#">RODO</a>
+        </div>
+      </div>
+      <p class="copyright">© 2026 Przevo Premium. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+    <script>
+      const menuButton = document.querySelector(".menu-toggle");
+      const mainNav = document.querySelector("#site-nav");
+
+      if (menuButton && mainNav) {
+        menuButton.addEventListener("click", () => {
+          const isOpen = mainNav.classList.toggle("is-open");
+          menuButton.setAttribute("aria-expanded", String(isOpen));
+          menuButton.setAttribute("aria-label", isOpen ? "Zamknij menu" : "Otwórz menu");
+        });
+
+        mainNav.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            mainNav.classList.remove("is-open");
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton.setAttribute("aria-label", "Otwórz menu");
+          });
+        });
+      }
+    </script>
   </body>
 </html>

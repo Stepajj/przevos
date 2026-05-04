@@ -719,12 +719,89 @@ li {
 }
 
 .price-card {
+  display: flex;
+  flex-direction: column;
   background: linear-gradient(180deg, #fefdfb, #f8f4ef);
   border-radius: 22px;
   box-shadow: var(--shadow-card);
   border: 1px solid rgba(207, 117, 65, 0.18);
   padding: 1.9rem 1.6rem;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+}
+
+.price-card ul {
+  flex: 1 1 auto;
+  margin: 0;
+}
+
+.btn-price-cta {
+  width: 100%;
+  margin-top: 1.35rem;
+  text-align: center;
+}
+
+.pricing-hourly {
+  margin-top: 3rem;
+  padding: 2rem 1.75rem;
+  background: linear-gradient(180deg, #fefdfb, #f8f4ef);
+  border-radius: 22px;
+  border: 1px solid rgba(207, 117, 65, 0.18);
+  box-shadow: var(--shadow-card);
+}
+
+.pricing-hourly-title {
+  margin: 0 0 1.25rem;
+  font-size: clamp(1.12rem, 2.5vw, 1.35rem);
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  color: #201b17;
+  line-height: 1.35;
+}
+
+.rate-table-wrap {
+  overflow-x: auto;
+  border-radius: 14px;
+  border: 1px solid rgba(35, 29, 24, 0.1);
+}
+
+.rate-table {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+  font-size: 0.98rem;
+}
+
+.rate-table th,
+.rate-table td {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(42, 35, 30, 0.1);
+  vertical-align: top;
+}
+
+.rate-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.rate-table th {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  background: rgba(207, 117, 65, 0.07);
+}
+
+.rate-table td:last-child {
+  font-weight: 650;
+  color: #2c2621;
+  white-space: nowrap;
+}
+
+.rate-table-note {
+  margin: 1rem 0 1.35rem;
+  font-size: 0.92rem;
+  color: var(--muted);
+  line-height: 1.65;
 }
 
 .price-card:hover {
@@ -911,6 +988,163 @@ details p {
   padding: 1.55rem;
   display: grid;
   gap: 0.9rem;
+}
+
+.contact-form.quote-form {
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-card {
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(35, 29, 24, 0.08);
+  padding: 1.35rem 1.4rem;
+}
+
+.form-section-title {
+  margin: 0 0 1.1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(42, 35, 30, 0.12);
+  font-size: 1.02rem;
+  font-weight: 750;
+  color: #201b17;
+  letter-spacing: -0.01em;
+}
+
+.form-fields {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.form-fields-split {
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-field-block {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.form-field-block-spaced {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(42, 35, 30, 0.08);
+}
+
+.form-field-label {
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.label-block {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.field-radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.field-radio-group-wrap {
+  gap: 0.55rem;
+}
+
+.field-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.72rem 1rem;
+  min-height: 48px;
+  border-radius: 14px;
+  border: 1px solid #dbd2ca;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: normal;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.field-radio:hover {
+  border-color: #cfc4ba;
+}
+
+.field-radio:has(:checked) {
+  border-color: #f2bf9f;
+  box-shadow: 0 0 0 3px rgba(239, 198, 172, 0.35);
+  background: #fffdfb;
+}
+
+.field-radio input[type="radio"] {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: 0;
+  accent-color: var(--accent-strong);
+}
+
+.field-checkbox-group {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.field-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.72rem 1rem;
+  min-height: 52px;
+  border-radius: 14px;
+  border: 1px solid #dbd2ca;
+  background: #faf8f5;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: normal;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.field-checkbox:hover {
+  border-color: #cfc4ba;
+}
+
+.field-checkbox:has(:checked) {
+  border-color: rgba(207, 117, 65, 0.45);
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(239, 198, 172, 0.28);
+}
+
+.field-checkbox input[type="checkbox"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  margin: 0;
+  flex-shrink: 0;
+  accent-color: var(--accent-strong);
+}
+
+.form-submit-bar {
+  padding-top: 0.25rem;
+}
+
+.form-submit-bar .btn {
+  width: 100%;
 }
 
 label {
@@ -1271,6 +1505,34 @@ details,
 
   .process-grid article:nth-child(3):hover {
     transform: translateY(-8px);
+  }
+
+  .form-fields-split {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-hourly {
+    padding: 1.5rem 1.15rem;
+    margin-top: 2.2rem;
+  }
+
+  .rate-table {
+    min-width: 0;
+  }
+
+  .rate-table td:last-child {
+    white-space: normal;
+  }
+
+  .form-submit-bar {
+    position: sticky;
+    bottom: 0;
+    z-index: 25;
+    margin: 0.35rem -0.25rem 0;
+    padding: 1rem 0.25rem calc(0.85rem + env(safe-area-inset-bottom, 0px));
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.92) 22%, #fff 45%);
+    border-top: 1px solid rgba(35, 29, 24, 0.08);
+    backdrop-filter: blur(8px);
   }
 }
 
